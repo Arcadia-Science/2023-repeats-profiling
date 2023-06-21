@@ -4,7 +4,7 @@ work/
 .RData
 .Rhistory
 uTR/
-test
+*test*
 .DS_Store
 *.Rproj*
 results/cartography_results/
