@@ -6,7 +6,7 @@
 nextflow.enable.dsl=2
 
 params.threads=4
-params.output_dir=null
+params.outdir=null
 
 log.info """\
 PROFILE REPEAT EXPANSIONS IN GENE SEQUENCES
@@ -15,22 +15,27 @@ input               : $params.input
 outdir              : $params.outdir
 """
 
-ch_fasta = channel.fromPath(params.input, checkIfExists: true)
+ch_fasta = channel.fromPath("${params.input}/*.{fasta,fa}")
+ch_query = ch_fasta.map { file ->
+    file.baseName
+}
+ch_query.view()
 
 workflow {
-    run_utr(ch_fasta)
+    run_utr(ch_fasta, ch_query)
 
 }
 
 process run_utr {
     // run utr
-    tag "${ch_fasta}_utr"
+    tag "${query}_utr"
     publishDir "${params.outdir}/utr", mode: 'copy', pattern:"*.fasta"
 
     container "elizabethmcd/utr:v1-release"
 
     input:
     path(fasta)
+    val(query)
 
     output:
     path("*.utr.fasta"), emit: utr_result
@@ -38,7 +43,7 @@ process run_utr {
     script:
 
     """
-    uTR -f $fasta -o test.utr.fasta
+    uTR -f $fasta -o ${query}.utr.fasta
     """
 
 }
