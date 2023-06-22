@@ -15,15 +15,14 @@ input               : $params.input
 outdir              : $params.outdir
 """
 
-ch_fasta = channel.fromPath("${params.input}/*.{fasta,fa}")
-ch_query = ch_fasta.map { file ->
-    file.baseName
-}
-ch_query.view()
+ch_fasta_query = channel.fromPath("${params.input}/*.{fasta,fa}")
+    .map{file -> tuple(file.baseName, file) }
+
 
 workflow {
-    run_utr(ch_fasta, ch_query)
-
+    run_utr(ch_fasta_query)
+    ch_utr_fastas = run_utr.out.utr_result.flatten()
+    summarize_repeats(ch_utr_fastas.collect())
 }
 
 process run_utr {
@@ -34,8 +33,7 @@ process run_utr {
     container "elizabethmcd/utr:v1-release"
 
     input:
-    path(fasta)
-    val(query)
+    tuple val(query), path(fasta)
 
     output:
     path("*.utr.fasta"), emit: utr_result
@@ -44,6 +42,25 @@ process run_utr {
 
     """
     uTR -f $fasta -o ${query}.utr.fasta
+    """
+
+}
+
+process summarize_repeats {
+    tag "summarize_repeats"
+    publishDir "${params.outdir}/summary", mode: 'copy', pattern:"*.tsv"
+
+    container "python:latest"
+
+    input:
+    path(fasta_files)
+
+    output:
+    path("*.tsv"), emit: summary
+
+    script:
+    """
+    python3 ${baseDir}/bin/parse_utr_fastas.py ${fasta_files.join(' ')} repeat_summaries.tsv
     """
 
 }
