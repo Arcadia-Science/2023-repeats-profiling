@@ -1,3 +1,4 @@
+*.fasta
 fastas/
 work/
 .nextflow/

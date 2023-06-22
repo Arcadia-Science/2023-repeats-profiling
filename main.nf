@@ -5,7 +5,7 @@
 
 nextflow.enable.dsl=2
 
-params.threads=4
+params.threads=20
 params.outdir=null
 
 log.info """\
@@ -32,11 +32,13 @@ process run_utr {
 
     container "elizabethmcd/utr:v1-release"
 
+    errorStrategy 'ignore' // ignore errors for now since some genes may contain long strings of Ns
+
     input:
     tuple val(query), path(fasta)
 
     output:
-    path("*.utr.fasta"), emit: utr_result
+    path("*.utr.fasta"), emit: utr_result, optional: true
 
     script:
 
