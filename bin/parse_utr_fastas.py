@@ -18,7 +18,7 @@ pattern = r"<([^>]*)>(\d+)"
 
 # open output summary TSV file
 with open(output_file, "a") as tsv_summary:
-    tsv_summary.write("Accession\tRepeat_Sequence\tRepeat_Unit\n")
+    tsv_summary.write("Accession\tRepeat_Sequence\tRepeat_Unit\tRepeat_Extension\tTotal_Repeat_Length\n")
 
     # iterate over input fastas in input directory
     for input_file in input_files:
@@ -32,5 +32,7 @@ with open(output_file, "a") as tsv_summary:
                     if line.startswith("> #Info"):
                         matches = re.findall(pattern, line)
                         if matches:
-                            for repeat, unit in matches:
-                                tsv_summary.write(f"{input_basename}\t{repeat}\t{unit}\n")
+                            for repeat, extension in matches:
+                                unit = len(repeat)
+                                total_length = unit * int(extension)
+                                tsv_summary.write(f"{input_basename}\t{repeat}\t{unit}\t{extension}\t{total_length}\n")
