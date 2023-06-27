@@ -14,9 +14,12 @@ def split_fasta(fasta_file, output_dir):
             header = record.description
             filename = os.path.join(output_dir, header.split(':')[0] + '.fasta')
 
+            # modify record header to container everything before : to simplify
+            record.id = header.split(':')[0]
+            record.description=''
             # Write each sequence to a new FASTA file
             with open(filename, 'w') as output_fasta:
-                SeqIO.write(record, output_fasta, 'fasta')
+                output_fasta.write(f">{record.id}\n{record.seq}\n")
 
 
 def main():

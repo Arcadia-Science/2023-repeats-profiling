@@ -20,8 +20,9 @@ RUN apt-get update && apt-get install -y \
     apt-get autoclean
 
 # download and install uTR executable
+# must be from forked repository with update to a parameter that has to be hard-coded
 WORKDIR /opt
-RUN git clone https://github.com/morisUtokyo/uTR.git && \
+RUN git clone https://github.com/elizabethmcd/uTR.git && \
     cd uTR && \
     make && \
     chmod u+x ./uTR && \
