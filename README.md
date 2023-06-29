@@ -72,7 +72,7 @@ Cached      : 326
 Ignored     : 12
 Failed      : 12
 ```
-
+If you do not see the output summary shown above, but all steps have completed successfully and received checkmarks, everything should be good to go.
 You will notice that some jobs fail at the `run_utr` process. This could be due to an input sequence being longer than the default of 1000000 bps, which has to be hardcoded into the original software, and any updates require the software to be recompiled and the Docker image rebuilt. If we find that many files are passing this threshold, we can update as needed.
 
 To debug or look at the logs for which files fail certain steps, you can investigate in the `work/` directory or the most recent `.nextflow.log` file. A future improvement will be better tracking of which files don't pass the repeat profiling and making a list of those to investigate specifically why the failed. For now, the workflow is designed to keep going even if some files fail that step.
