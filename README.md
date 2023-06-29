@@ -11,6 +11,7 @@ Once you have these installed, you can set up the workflow with:
 
 ```
 git clone https://github.com/Arcadia-Science/REprofile.git
+cd REprofile #move into repository folder
 ```
 
 ```
