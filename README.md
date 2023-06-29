@@ -19,7 +19,7 @@ conda env create -n nextflow -f environment.yml
 conda activate nextflow
 ```
 
-To run the workflow, you need to provide an input directory of nucleotide FASTA files where each FASTA file is a single record or gene. If you have a multi-FASTA file containing several genes where the header is the name of the gene, you can use the script `python3 scripts/split-fastas.py multifasta.fasta fasta_directory/` which will produce individual FASTA files per record in the output directory. Use this directory as your input directory for the workflow:
+To run the workflow, you need to provide an input directory of nucleotide FASTA files where each FASTA file is a single record or gene. Input file names should end in '.fasta'. If you have a multi-FASTA file containing several genes where the header is the name of the gene, you can use the script `python3 scripts/split-fastas.py multifasta.fasta fasta_directory/` which will produce individual FASTA files per record in the output directory. Use this directory as your input directory for the workflow:
 
 ```
 nextflow run main.nf --input fasta_directory --outdir repeat_results
