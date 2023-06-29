@@ -1,3 +1,12 @@
+*.fasta
+fastas/
+work/
+.nextflow/
+.nextflow.log*
+.RData
+.Rhistory
+uTR/
+*test*
 .DS_Store
 *.Rproj*
 results/cartography_results/
