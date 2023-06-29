@@ -1,6 +1,6 @@
 # Profiling Repeat Expansions (REs) across the TOL
 
-This repository contains code, workflows, results, and metadata files for exploring genes, proteins, and genomes with repeat expansions (REs) with a specific focus on human disease-causing REs (dREs) in finding homologs in other species.
+This repository contains code, workflows, results, and metadata files for exploring genes, proteins, and genomes with repeat expansions (REs), with a specific focus on finding REs in homologs of human proteins that have disease-causing REs (dREs).
 
 ## Workflow
 This repository includes a Nexflow workflow to process and summarize repeats in input nucleotide FASTA files. To use the workflow, you will need to have Docker and Nextflow installed:
