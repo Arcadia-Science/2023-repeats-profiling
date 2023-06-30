@@ -5,8 +5,8 @@ from Bio import SeqIO
 def find_consecutive_repeated_letters(file_path):
     # Read the FASTA file and extract the sequence
     record =  SeqIO.read(file_path, 'fasta')
-    organism = record.description.split('[')[1]
-    geneid = record.description.split('[')[2]
+    organism = record.description.split('=')[1].split(']')[0]
+    geneid = record.description.split('=')[2].split(']')[0]
     sequence = record.seq
 
     # Initialize variables
@@ -52,7 +52,7 @@ def find_consecutive_repeated_letters(file_path):
     # Create a DataFrame from the repeats list
     repeats_df = pd.DataFrame(repeats)
     repeats_df["Accession"] = file_path.rsplit("/",1)[-1]
-    repeats_df["Organism"] = organism[9:-2]
-    repeats_df["Geneid"] = geneid[6:-1]
+    repeats_df["Organism"] = organism
+    repeats_df["Geneid"] = geneid
 
     return repeats_df
