@@ -1,0 +1,19 @@
+name: REpilot
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - blast
+  - gepard
+  - muscle
+  - hmmer
+  - emboss
+  - cd-hit
+  - pfam_scan
+  - mafft
+  - bedtools
+  - ucsc-fasplit
+  - ca-certificates
+  - openssl
+prefix: /Users/michaelreitman/miniconda3/envs/REpilot

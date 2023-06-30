@@ -15,7 +15,7 @@ cd REprofile #move into repository folder
 ```
 
 ```
-conda env create -n nextflow -f environment.yml
+conda env create -n nextflow -f envs/nextflow_environment.yml
 conda activate nextflow
 ```
 
