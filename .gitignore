@@ -24,3 +24,4 @@ uTR/
 .DS_Store
 *.Rproj*
 results/cartography_results/
+.Rproj.user

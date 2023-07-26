@@ -1,29 +1,29 @@
 library(tidyverse)
 
-files_path <- "results/foldseek_results_tables"
-files <- dir(files_path, pattern="*_aggregated_features_pca_tsne.tsv")
+# combined table results 
+combined_results_table <- read_tsv("results/combined-foldseek-results-table.tsv")
 
-combined_results_table <- data_frame(filename = files) %>% 
-  mutate(file_contents = map(filename, ~ read_tsv(file.path(files_path, .)))) %>% 
-  unnest(cols=c(file_contents)) %>% 
-  mutate(TM_v_query = str_extract(TM_v_query, "\\S+")) %>%
-  mutate(reference = str_extract(filename, "(?<=_)[^_]+(?=_)")) %>% 
-  select(reference, protid, sequence.length, organism.scientificName, organism.commonName, organism.lineage, TM_v_query)
+# plot comparisons of the protein hit length vs Tm score, color by reference 
+combined_results_table %>% 
+  ggplot(aes(x=TM_v_query, y=sequence.length)) + 
+  geom_point(aes(color=reference))
 
-reference_lengths <- combined_results_table %>% 
-  filter(reference == protid) %>% 
-  mutate(reference_length = sequence.length) %>% 
-  select(reference, reference_length)
+combined_results_table %>% 
+  filter(TM_v_query > 0.3) %>% 
+  ggplot(aes(x=TM_v_query, y=sequence.length)) + 
+  geom_point(aes(color=reference))
 
-combined_table_filtered <- combined_results_table %>% 
-  left_join(reference_lengths) %>% 
-  filter(TM_v_query > .5) %>% 
-  select(reference, reference_length, protid, sequence.length, TM_v_query, organism.scientificName, organism.commonName, organism.lineage)
+# group by common name to find information of species with most hits across query proteins
 
-stringent_filtered_table <- combined_table_filtered %>% 
-  mutate(proportion_of_reference = sequence.length / reference_length) %>% 
-  filter(TM_v_query > .85) %>% 
-  filter(proportion_of_reference > .7)
+combined_results_table %>%
+  filter(TM_v_query > 0.3) %>% 
+  group_by(organism.commonName) %>% 
+  count() %>% 
+  arrange(desc(n))
+
+# stringent filtering 
+stringent_filtered_table <- combined_table_refined %>% 
+  filter(TM_v_query > .85)
 
 stringent_filtered_table %>% 
   group_by(reference) %>% 
@@ -39,5 +39,3 @@ stringent_filtered_table %>%
   group_by(organism.commonName) %>% 
   count() %>% 
   arrange(desc(n))
-
-write_tsv(stringent_filtered_table, "results/filtered-protein-hits-table.tsv")
