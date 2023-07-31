@@ -108,15 +108,6 @@ def analyzecountedAAs(input_dir = "../results/countedAAs",
         try: AA_reps["Human Pathogenic Min Delta"]= AA_reps["Length"]-int(pathogenic_min)
         except: AA_reps["Human Pathogenic Min Delta"]== np.NAN
 
-        #Filter for one gene homolog if there are multiple isoforms with the same repeat length
-        # try: #only works for BLAST results right now
-        #     AA_reps = AA_reps.sort_values(by = ['Per. Ident'],ascending = [False]).drop_duplicates(subset = ['Length', 'Description']).sort_index()
-        # except:
-        #     None
-
-        #Filter for one gene homolog per species per dRE
-        # AA_reps = AA_reps.sort_values('Per. Ident', ascending=False).drop_duplicates(subset = ['Length', 'Scientific Name']).sort_index()
-
         #Drop humans and synthetic constructs from results
         AA_reps = AA_reps[AA_reps["Scientific Name"].str.contains("synthetic construct|Homo sapiens")==False]
 

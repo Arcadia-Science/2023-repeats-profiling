@@ -1,7 +1,7 @@
 import os
 from FaSplitter import FaSplitter
 
-def arrangeBLASTfastas(fastas_directory="../results/hit_DNA_sequences/"):
+def arrangefastas(fastas_directory="../results/hit_DNA_sequences/"):
     """\
     This script takes a user-defined path to a tree structure with many
     combined nucleotide and protein fastas, and splits the combined fastas into seperate .fa files,

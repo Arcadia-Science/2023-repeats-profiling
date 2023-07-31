@@ -2,42 +2,6 @@ import os
 import pandas as pd
 from Bio import SeqIO
 
-def fcrlwrapper(input_dir, output_folder, MRget=False, overwrite=False):
-
-    for gene_folder in os.scandir(input_dir):
-
-        if not gene_folder.is_dir(): continue
-
-        if MRget: #How I arranged my data from NCBIget is unique
-            directory = os.path.join(gene_folder,"split_protein_fastas")
-            this_gene = gene_folder.path.rsplit('/')[-1]
-        else:
-            directory = gene_folder
-            this_gene = gene_folder.path.rsplit('/')[-1].split('_')[0]
-
-        save_name = os.path.join(output_folder, this_gene + ".csv")
-        if not overwrite:
-            if os.path.isfile(save_name): continue
-
-        try:
-            del all_rpt_cnts
-        except:
-            None
-
-        for files in os.listdir(directory):
-            if ".DS_Store" in files: continue
-            file_path = os.path.join(directory, files)
-
-            this_rpt_cnt = fcrl(file_path)
-
-            try:
-                all_rpt_cnts = pd.concat([all_rpt_cnts,this_rpt_cnt])
-            except:
-                all_rpt_cnts = this_rpt_cnt
-
-
-        all_rpt_cnts.to_csv(save_name)
-
 def fcrl(file_path):
     # Read the FASTA file and extract the sequence
     try:
@@ -93,6 +57,41 @@ def fcrl(file_path):
 
     return repeats_df
 
+def fcrlwrapper(input_dir, output_folder, MRget=False, overwrite=False):
+
+    for gene_folder in os.scandir(input_dir):
+
+        if not gene_folder.is_dir(): continue
+
+        if MRget: #How I arranged my data from NCBIget is unique
+            directory = os.path.join(gene_folder,"split_protein_fastas")
+            this_gene = gene_folder.path.rsplit('/')[-1]
+        else:
+            directory = gene_folder
+            this_gene = gene_folder.path.rsplit('/')[-1].split('_')[0]
+
+        save_name = os.path.join(output_folder, this_gene + ".csv")
+        if not overwrite:
+            if os.path.isfile(save_name): continue
+
+        try:
+            del all_rpt_cnts
+        except:
+            None
+
+        for files in os.listdir(directory):
+            if ".DS_Store" in files: continue
+            file_path = os.path.join(directory, files)
+
+            this_rpt_cnt = fcrl(file_path)
+
+            try:
+                all_rpt_cnts = pd.concat([all_rpt_cnts,this_rpt_cnt])
+            except:
+                all_rpt_cnts = this_rpt_cnt
+
+
+        all_rpt_cnts.to_csv(save_name)
 
 def combinecounts(input_folder1,input_folder2,output_folder,databases):
 #combine two folder of counts (e.g folders with Refseq and Genbank counts)

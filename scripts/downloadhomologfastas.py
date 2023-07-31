@@ -19,7 +19,7 @@ def batched(iterable, n):
     while batch := tuple(itertools.islice(it, n)):
         yield batch
 
-def downloadhomologfastas(BLAST_filepath,output_folder_path= "../results/hit_DNA_sequences",n_per_search=500, overwrite=False):
+def downloadhomologfastas(blast_filepath,output_folder_path= "../results/hit_DNA_sequences",n_per_search=500, overwrite=False):
 
     """\
     This script takes a .csv file of protein BLAST results and downloads the corresponding nucleotide
@@ -27,10 +27,10 @@ def downloadhomologfastas(BLAST_filepath,output_folder_path= "../results/hit_DNA
     named for the gene that was BLASTed. To increase speed and reduce NCBI searches it searches in batches of
     n_per_search (default = 500).
 
-    Usage: downloadhomologfastas.py BLAST_filepath output_folder_path n_per_search
+    Usage: downloadhomologfastas.py blast_filepath output_folder_path n_per_search
     """
-    #load Blast results
-    results_df = pd.read_csv(BLAST_filepath)
+    #load blast results
+    results_df = pd.read_csv(blast_filepath)
     filtered_results = results_df[results_df["Accession"].str.startswith(('XP','NP'))] #only proteins with NCBI accessions (XP or NP) can be used
 
     #make folders of nucleotide sequences by queried gene
