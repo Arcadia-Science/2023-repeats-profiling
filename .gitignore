@@ -1,5 +1,16 @@
-results/hit_DNA_sequences/
+results/homology_results
+results/taxidcounts_for_treemapping
+results/analyzed_AAcounts
+results/counted_NTs
+results/counted_AAs
+results/Foldseek_aa_fasta_fromEW_20230712
+results/foldseek_results_tables
+results/BLAST_NCBIfastas_fromEW_20230713
+results/BLAST_Genbankfastas_fromEW_20230713
+results/hit_DNA_sequences
+results/dREhomologs_MR20230710.csv
 results/dREhomologs_MR20230620.csv
+results/countedAAs
 inputs/
 *.fasta
 fastas/
