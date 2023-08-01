@@ -1,3 +1,4 @@
+scripts/__pycache__
 results/homology_results
 results/taxidcounts_for_treemapping
 results/analyzed_AAcounts
@@ -8,8 +9,6 @@ results/foldseek_results_tables
 results/BLAST_NCBIfastas_fromEW_20230713
 results/BLAST_Genbankfastas_fromEW_20230713
 results/hit_DNA_sequences
-results/dREhomologs_MR20230710.csv
-results/dREhomologs_MR20230620.csv
 results/countedAAs
 inputs/
 *.fasta
