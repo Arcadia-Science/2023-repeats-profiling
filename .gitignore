@@ -4,10 +4,9 @@ results/taxidcounts_for_treemapping
 results/analyzed_AAcounts
 results/counted_NTs
 results/counted_AAs
-results/Foldseek_aa_fasta_fromEW_20230712
+results/Foldseek_aa_fastas
 results/foldseek_results_tables
-results/BLAST_NCBIfastas_fromEW_20230713
-results/BLAST_Genbankfastas_fromEW_20230713
+results/BLAST_Genbank_aa_fastas
 results/hit_DNA_sequences
 results/countedAAs
 inputs/
