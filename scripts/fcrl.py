@@ -58,6 +58,7 @@ def fcrl(file_path):
     return repeats_df
 
 def fcrlwrapper(input_dir, output_folder, MRget=False, overwrite=False):
+    os.makedirs(output_folder,exist_ok=True)
 
     for gene_folder in os.scandir(input_dir):
 
