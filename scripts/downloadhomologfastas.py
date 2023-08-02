@@ -19,7 +19,7 @@ def batched(iterable, n):
     while batch := tuple(itertools.islice(it, n)):
         yield batch
 
-def downloadhomologfastas(blast_filepath,output_folder_path= "../results/hit_DNA_sequences",n_per_search=500, overwrite=False):
+def downloadhomologfastas(blast_filepath,output_folder_path,n_per_search=500, overwrite=False):
 
     """\
     This script takes a .csv file of protein BLAST results and downloads the corresponding nucleotide
