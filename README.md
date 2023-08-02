@@ -2,7 +2,17 @@
 
 This repository contains code, workflows, results, and metadata files for exploring genes, proteins, and genomes with repeat expansions (REs), with a specific focus on finding REs in homologs of human proteins that have disease-causing REs (dREs).
 
-## Workflow
+## Analysis steps
+
+# 1. Finding homologs and structurally similar proteins
+To find homologs using protein BLAST we used the gget package in google colabs using the [BLASTdREgenes notebook](notebooks/BLASTdREgenes.ipynb).ipynb notebook in Google Colab, saving the results in google drive before manually downloading it. We then ran the [countdREseqhomology notebook](notebooks/countdREseqhomology.ipynb)"to filter and count homologs in our BLAST results, putting the results in the homology folder with the name dREhomologs_"date".csv . To find structurally similar proteins we used FoldSeek and aggregated the results into a single file with the name dREstruct_similarity_"date".tsv .
+
+# 2. Fasta downloading and amino acid counting
+We used the [profilerepeats notebook](notebooks/profilerepeats.ipynb) as our main function and called our other functions through this notebook. We used this notebook to pull refseq fastas from our BLAST results, after downloading the[ NCBI's command line tools](https://www.ncbi.nlm.nih.gov/datasets/docs/v2/download-and-install/).We also manually ran the "Pulling" notebooks for foldseek [amino acid](notebooks/Pulling_amino_acid_fasta_for_foldseek_results.ipynb) and [nucleotide](notebooks/Pulling_gene_sequences_from_foldseek_results.ipynb) sequences, as well as our [genbank](notebooks/Pulling_amino_acid_fasta_from_genbank_for_foldseek_results.ipynb) BLAST accessions all of which could not be pulled down using the NCBI's command line tools.
+
+#
+
+## Nucleotide Counting Workflow
 This repository includes a Nexflow workflow to process and summarize repeats in input nucleotide FASTA files. To use the workflow, you will need to have Docker and Nextflow installed:
 1. Install Docker [according to these instructions for your operating system](https://docs.docker.com/engine/install/).
 2. The easiest way to install Nextflow without worrying about dependency issues on your machine is through a conda environment, and can [install according to the instructions for your operation system](https://docs.conda.io/en/latest/miniconda.html).
