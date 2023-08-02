@@ -23,9 +23,8 @@ def downloadhomologfastas(blast_filepath,output_folder_path,n_per_search=500, ov
 
     """\
     This script takes a .csv file of protein BLAST results and downloads the corresponding nucleotide
-    and protein fastas, putting them in a new folder (default = results/hit_DNA_sequences) with subfolders
-    named for the gene that was BLASTed. To increase speed and reduce NCBI searches it searches in batches of
-    n_per_search (default = 500).
+    and amino acid fastas, putting them in a new folder with subfolders named for the gene that was BLASTed.
+    To increase speed and reduce NCBI searches it searches in batches of n_per_search (default = 500).
 
     Usage: downloadhomologfastas.py blast_filepath output_folder_path n_per_search
     """
@@ -33,13 +32,11 @@ def downloadhomologfastas(blast_filepath,output_folder_path,n_per_search=500, ov
     results_df = pd.read_csv(blast_filepath)
     filtered_results = results_df[results_df["Accession"].str.startswith(('XP','NP'))] #only proteins with NCBI accessions (XP or NP) can be used
 
-    #make folders of nucleotide sequences by queried gene
-    if not os.path.exists(output_folder_path):
-        os.mkdir(output_folder_path)
+    #make folders of sequences by queried gene
     for gene in filtered_results["gene"].unique():
         gene_folder = os.path.join(output_folder_path,gene)
-        if not os.path.exists(gene_folder):
-            os.mkdir(gene_folder)
+        os.makedirs(gene_folder,exist_ok=True)
+
 
     #pull down nucleotide and amino acid sequence for each protein hit
 
