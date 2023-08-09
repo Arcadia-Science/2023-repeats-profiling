@@ -58,6 +58,7 @@ def fcrl(file_path):
     return repeats_df
 
 def fcrlwrapper(input_dir, output_folder, MRget=False, overwrite=False):
+    os.makedirs(output_folder,exist_ok=True)
 
     for gene_folder in os.scandir(input_dir):
 
@@ -95,6 +96,8 @@ def fcrlwrapper(input_dir, output_folder, MRget=False, overwrite=False):
 
 def combinecounts(input_folder1,input_folder2,output_folder,databases):
 #combine two folder of counts (e.g folders with Refseq and Genbank counts)
+
+    os.makedirs(output_folder,exist_ok=True)
 
     for files in os.listdir(input_folder1):
         if ".DS_Store" in files: continue
