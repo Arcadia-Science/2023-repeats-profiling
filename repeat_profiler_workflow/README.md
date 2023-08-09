@@ -12,7 +12,7 @@ cd REprofile/repeat_profiler_workflow #move into repository and workflow folders
 ```
 
 ```
-conda env create -n nextflow -f envs/nextflow_environment.yml
+conda env create -n nextflow -f nextflow_environment.yml
 conda activate nextflow
 ```
 
@@ -73,3 +73,15 @@ If you do not see the output summary shown above, but all steps have completed s
 You will notice that some jobs fail at the `run_utr` process. This could be due to an input sequence being longer than the default of 1000000 bps, which has to be hardcoded into the original software, and any updates require the software to be recompiled and the Docker image rebuilt. If we find that many files are passing this threshold, we can update as needed.
 
 To debug or look at the logs for which files fail certain steps, you can investigate in the `work/` directory or the most recent `.nextflow.log` file. A future improvement will be better tracking of which files don't pass the repeat profiling and making a list of those to investigate specifically why the failed. For now, the workflow is designed to keep going even if some files fail that step.
+
+### Dockerfile creation
+A Docker image of the [uTR](https://github.com/morisUtokyo/uTR) software was created based on a fork of this repository where the `MAX_INPUT_LENGTH` argument was increased so the workflow would process larger input gene sequences. The Docker image was created with the steps:
+
+```
+# After making modifications to the input length argument that is hard-coded, which is reflected in this fork
+git clone https://github.com/elizabethmcd/uTR
+cd uTR
+make .
+docker build -t elizabethmcd/utr:latest
+docker push elizabethmcd/utr:localv1
+```
