@@ -1,11 +1,11 @@
-# Profiling Repeat Expansions (REs) across the TOL
+# Profiling Repeat Expansions across the Tree of Life
 
 This repository contains code, workflows, results, and metadata files for exploring genes, proteins, and genomes with repeat expansions (REs), with a specific focus on finding REs in homologs of human proteins that have disease-causing REs (dREs).
 
 ## Analysis steps
 Unless otherwise noted the [profilerepeats notebook](notebooks/profilerepeats.ipynb) is used as the main workflow and scripts are called through this notebook.
 
-Large files that could not be hosted on Github can be downloaded from Zenodo DOI: 10.5281/zenodo.8180704
+Large files that could not be hosted on Github can be downloaded from Zenodo DOI: [10.5281/zenodo.8180704](10.5281/zenodo.8180704)
 
 # 1. Finding homologs and structurally similar proteins
 To find homologs using protein BLAST run the [BLASTdREgenes notebook](notebooks/BLASTdREgenes.ipynb).ipynb notebook in Google Colab, saving the results in google drive before manually downloading it. Afterwards run the [countdREseqhomology notebook](notebooks/countdREseqhomology.ipynb)"to filter and count homologs of the BLAST results, which puts the results in the homology folder with the name dREhomologs_"date".csv . To find structurally similar proteins use FoldSeek and aggregate the results into a single file with the name dREstruct_similarity_"date".tsv placed in the homology folder.
