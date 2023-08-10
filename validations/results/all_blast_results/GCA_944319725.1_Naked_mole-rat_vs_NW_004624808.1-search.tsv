@@ -1,0 +1,12 @@
+# BLASTN 2.14.0+
+# Query: lcl|NW_004624808.1_cds_XP_004862358.1_1 [gene=Sox3] [db_xref=GeneID:101720375] [protein=transcription factor SOX-3] [protein_id=XP_004862358.1] [location=6167512..6168891] [gbkey=CDS]
+# Database: blast_dbs/GCA_944319725.1_Naked_mole-rat_paternal_genomic.fna
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 6 hits found
+lcl|NW_004624808.1_cds_XP_004862358.1_1	OX090970.1	99.334	751	4	1	1	750	12748248	12748998	0.0	1358
+lcl|NW_004624808.1_cds_XP_004862358.1_1	OX090970.1	98.797	665	4	4	718	1380	12748927	12749589	0.0	1181
+lcl|NW_004624808.1_cds_XP_004862358.1_1	OX090951.1	87.941	340	31	7	356	690	462359	462025	2.19e-106	392
+lcl|NW_004624808.1_cds_XP_004862358.1_1	OX090951.1	89.231	260	28	0	408	667	53315826	53315567	2.25e-86	326
+lcl|NW_004624808.1_cds_XP_004862358.1_1	OX090948.1	88.396	293	34	0	408	700	55481653	55481361	1.03e-94	353
+lcl|NW_004624808.1_cds_XP_004862358.1_1	OX090940.1	96.970	33	1	0	415	447	38072153	38072185	3.27e-05	56.5
+# BLAST processed 1 queries
