@@ -1,6 +1,6 @@
 # Profiling Repeat Expansions (REs) across the TOL
 
-This repository contains code, workflows, results, and metadata files for exploring genes, proteins, and genomes with repeat expansions (REs), with a specific focus on finding REs in homologs of human proteins that have disease-causing REs (dREs).
+This repository contains code, results, and metadata files for exploring genes, proteins, and genomes with repeat expansions (REs), with a specific focus on finding REs in homologs of human proteins that have disease-causing REs (dREs).
 
 ## Analysis steps
 Unless otherwise noted the [profilerepeats notebook](notebooks/profilerepeats.ipynb) is used as the main workflow and scripts are called through this notebook.
@@ -19,7 +19,3 @@ combine the fastas into a single folder, analyze them for repeats, and combine t
 
 # 4. Plotting
 For plotting, use the [plotrepeats script](scripts/plotrepeats.py) to plot analyzed repeat counts for each set of dRE genes individually, and to violinplot repeats relative to repeat lengths in humans. To map onto taxonomic trees, first obtain counts for repeats exceeding the healthy human limits using the final cells in the [profilerepeats notebook](notebooks/profilerepeats.ipynb).  Counts relative to species taxid can then be plotted using the[tree plotting notebook](notebooks/NCBI_taxid_to_lineage_and_barchart_tree_plotting.ipynb).
-
-
-## Nucleotide Counting Workflow
-This repository includes a Nexflow workflow to process and summarize tandem repeats in input nucleotide FASTA files. To use the workflow, navigate to the `repeat_profiler_workflow` subdirectory and follow the installation and setup instructions there.
