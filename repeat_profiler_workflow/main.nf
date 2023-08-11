@@ -49,7 +49,7 @@ process screen_fastas {
 process run_utr {
     // run utr
     tag "${query}_utr"
-    publishDir "${params.outdir}/utr", mode: 'copy', pattern:"*.utrfasta"
+    publishDir "${params.outdir}/utr", mode: 'copy', pattern:"*.utr.fasta"
 
     container "elizabethmcd/utr:localv1" //compiled version of uTR with updated MAX_READS_LENGTH parameter
 
