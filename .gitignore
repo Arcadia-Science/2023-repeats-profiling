@@ -1,4 +1,6 @@
-validations/
+*.tar.gz
+validations/genome_fastas/
+validations/blast_dbs/
 scripts/__pycache__
 results/homology_results
 results/taxidcounts_for_treemapping
