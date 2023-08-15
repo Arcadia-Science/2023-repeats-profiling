@@ -19,4 +19,3 @@ combine the fastas into a single folder, analyze them for repeats, and combine t
 
 # 4. Plotting
 Use the [plotrepeats script](scripts/plotrepeats.py) to plot analyzed repeat counts for each set of dRE genes individually and to produce a violin plot of repeats relative to repeat lengths in humans. To produce the other figures in the pub, first obtain counts for repeats exceeding the healthy human limits using the final cells in the [profilerepeats notebook](notebooks/profilerepeats.ipynb).  Counts relative to species taxid can then be plotted using the[tree plotting notebook](notebooks/NCBI_taxid_to_lineage_and_barchart_tree_plotting.ipynb). Tables produced by this notebook can be used by [phyloT](https://phylot.biobyte.de/) and then [iTOL](https://itol.embl.de/) to visualize results on taxonomic trees.
-**
