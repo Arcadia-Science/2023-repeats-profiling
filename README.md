@@ -1,4 +1,4 @@
-**# Profiling Repeat Expansions across the Tree of Life
+# Profiling Repeat Expansions across the Tree of Life
 
 This repository contains code, results, and metadata files for exploring genes, proteins, and genomes with repeat expansions (REs), with a specific focus on finding REs in homologs of human proteins that have disease-causing REs (dREs).
 
