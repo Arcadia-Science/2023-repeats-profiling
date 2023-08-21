@@ -6,6 +6,7 @@ results/counted_AAs
 results/Foldseek_aa_fastas
 results/BLAST_Genbank_aa_fastas
 results/refseq_fastas
+results/plots
 inputs/
 *.fasta
 fastas/
