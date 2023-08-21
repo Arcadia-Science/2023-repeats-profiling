@@ -1,5 +1,14 @@
-results/hit_DNA_sequences/
-results/dREhomologs_MR20230620.csv
+*.tar.gz
+validations/genome_fastas/
+validations/blast_dbs/
+scripts/__pycache__
+results/homology_results
+results/taxidcounts_for_treemapping
+results/analyzed_AAcounts
+results/counted_AAs
+results/Foldseek_aa_fastas
+results/BLAST_Genbank_aa_fastas
+results/refseq_fastas
 inputs/
 *.fasta
 fastas/

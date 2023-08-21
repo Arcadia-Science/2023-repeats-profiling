@@ -3,4 +3,5 @@ channels:
   - bioconda
   - defaults
 dependencies:
-  - nextflow=22.10.6
+  - biopython=1.81
+  - blast=2.14.0

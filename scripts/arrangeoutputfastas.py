@@ -1,7 +1,7 @@
 import os
 from FaSplitter import FaSplitter
 
-def arrangeouputfastas(fastas_directory="results/hit_DNA_sequences/"):
+def arrangefastas(fastas_directory="../results/hit_DNA_sequences/"):
     """\
     This script takes a user-defined path to a tree structure with many
     combined nucleotide and protein fastas, and splits the combined fastas into seperate .fa files,
@@ -15,11 +15,11 @@ def arrangeouputfastas(fastas_directory="results/hit_DNA_sequences/"):
         split_proteins_folder = os.path.join(folder,'split_protein_fastas')
         folder_str = folder.path
 
-        if "." in folder_str:
-                        continue
-        if not os.path.exists(split_genes_folder):
+        if ".DS_Store" in folder_str:
+                continue
+        if not os.path.isdir(split_genes_folder):
                 os.mkdir(split_genes_folder)
-        if not os.path.exists(split_proteins_folder):
+        if not os.path.isdir(split_proteins_folder):
                 os.mkdir(split_proteins_folder)
 
         for file in os.scandir(folder):

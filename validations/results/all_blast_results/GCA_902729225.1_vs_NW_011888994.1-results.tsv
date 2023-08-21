@@ -1,0 +1,7 @@
+# BLASTN 2.14.0+
+# Query: NW_011888994.1:3637973-3643487 Pteropus vampyrus isolate Shadow unplaced genomic scaffold, Pvam_2.0 Scaffold213, whole genome shotgun sequence
+# Database: blast_dbs/GCA_902729225.1_Ma_sr-lr_union100_genomic.fna
+# Fields: query acc.ver, subject acc.ver, % identity, alignment length, mismatches, gap opens, q. start, q. end, s. start, s. end, evalue, bit score
+# 1 hits found
+NW_011888994.1:3637973-3643487	CACVBW010001364.1	99.583	5516	8	8	1	5515	369884	364383	0.0	10045
+# BLAST processed 1 queries
