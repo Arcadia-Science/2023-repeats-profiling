@@ -1,6 +1,6 @@
 # Profiling Repeat Expansions across the Tree of Life
 
-This repository contains code, results, and metadata files for exploring genes, proteins, and genomes with repeat expansions (REs), with a specific focus on finding REs in homologs of human proteins that have disease-causing REs (dREs).
+This repository contains code, results, and metadata files for exploring genes, proteins, and genomes with repeat expansions (REs), with a specific focus on finding REs in homologs of human proteins that have disease-causing REs (dREs). This code is associated with the pub []()
 
 ## Analysis steps
 Unless otherwise noted the [profilerepeats notebook](notebooks/profilerepeats.ipynb) is used as the main workflow and scripts are called through this notebook.
@@ -20,3 +20,6 @@ combine the fastas into a single folder, analyze them for repeats, and combine t
 
 # 4. Plotting
 Use the [plotrepeats script](scripts/plotrepeats.py) to plot analyzed repeat counts for each set of dRE genes individually and to produce a violin plot of repeats relative to repeat lengths in humans. To produce the other figures in the pub, first obtain counts for repeats exceeding the healthy human limits using the final cells in the [profilerepeats notebook](notebooks/profilerepeats.ipynb).  Counts relative to species taxid can then be plotted using the [bar chart plotting notebook](notebooks/NCBI_taxid_to_lineage_and_barchart_tree_plotting.ipynb). Tables produced by this notebook can be used by [phyloT](https://phylot.biobyte.de/) and then [iTOL](https://itol.embl.de/) to visualize results on taxonomic trees.
+
+# Contributing & Citation
+If you use the code or ideas in this repository for your own work, please cite DOI: . If you would like to contribute to this repository, please read our [guide on credit for contributions](https://github.com/Arcadia-Science/arcadia-software-handbook/blob/main/guides-and-standards/guide-credit-for-contributions.md).
