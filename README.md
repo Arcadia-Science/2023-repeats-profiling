@@ -1,9 +1,13 @@
 # Profiling Repeat Expansions across the Tree of Life
 
-This repository contains code, results, and metadata files for exploring genes, proteins, and genomes with repeat expansions (REs), with a specific focus on finding REs in homologs of human proteins that have disease-causing REs (dREs). This code is associated with the pub []()
+This repository contains code, results, and metadata files for exploring genes, proteins, and genomes with repeat expansions (REs), with a specific focus on finding REs in homologs of human proteins that have disease-causing REs (dREs). This code is associated with the pub [Repeat expansions associated with human disease are present in diverse organisms DOI:10.57844/arcadia-e367-8b55](https://doi.org/10.57844/arcadia-e367-8b55).
 
 ## Analysis steps
-Unless otherwise noted the [profilerepeats notebook](notebooks/profilerepeats.ipynb) is used as the main workflow and scripts are called through this notebook.
+Unless otherwise noted the [profilerepeats notebook](notebooks/profilerepeats.ipynb) is used as the main workflow and scripts are called through this notebook. To use software and analysis packages associated with these scripts, you can create a conda environment with:
+
+```
+conda env create -n repeats_profiling -f envs/REpilot.yml
+```
 
 Large files that could not be hosted on Github and other result tables can be downloaded from Zenodo DOI: [10.5281/zenodo.8180704](10.5281/zenodo.8180704)
 

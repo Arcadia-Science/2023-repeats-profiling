@@ -4,6 +4,12 @@ For some of the proteins we found hits to our disease-causing repeat expansion p
 
 Importantly, we couldn't find gene annotation information for these new assemblies, so we have to BLAST for candidate regions in these assemblies that could potentially be our gene of interest that we retrieved from the short-read assembly for this species hit.
 
+To use the software and commands listed below, create a conda environment with:
+
+```
+conda create -n repeats_validations -f environment.yml
+```
+
 ## BLAST genes against the species genomes
 For both species genomes, make nucleotide BLAST databases with:
 
