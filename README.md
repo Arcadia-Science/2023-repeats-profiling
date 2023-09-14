@@ -1,9 +1,13 @@
 # Profiling Repeat Expansions across the Tree of Life
 
-This repository contains code, results, and metadata files for exploring genes, proteins, and genomes with repeat expansions (REs), with a specific focus on finding REs in homologs of human proteins that have disease-causing REs (dREs).
+This repository contains code, results, and metadata files for exploring genes, proteins, and genomes with repeat expansions (REs), with a specific focus on finding REs in homologs of human proteins that have disease-causing REs (dREs). This code is associated with the pub [Repeat expansions associated with human disease are present in diverse organisms DOI:10.57844/arcadia-e367-8b55](https://doi.org/10.57844/arcadia-e367-8b55).
 
 ## Analysis steps
-Unless otherwise noted the [profilerepeats notebook](notebooks/profilerepeats.ipynb) is used as the main workflow and scripts are called through this notebook.
+Unless otherwise noted the [profilerepeats notebook](notebooks/profilerepeats.ipynb) is used as the main workflow and scripts are called through this notebook. To use software and analysis packages associated with these scripts, you can create a conda environment with:
+
+```
+conda env create -n repeats_profiling -f envs/REpilot.yml
+```
 
 Large files that could not be hosted on Github and other result tables can be downloaded from Zenodo DOI: [10.5281/zenodo.8180704](10.5281/zenodo.8180704)
 
@@ -20,3 +24,6 @@ combine the fastas into a single folder, analyze them for repeats, and combine t
 
 # 4. Plotting
 Use the [plotrepeats script](scripts/plotrepeats.py) to plot analyzed repeat counts for each set of dRE genes individually and to produce a violin plot of repeats relative to repeat lengths in humans. To produce the other figures in the pub, first obtain counts for repeats exceeding the healthy human limits using the final cells in the [profilerepeats notebook](notebooks/profilerepeats.ipynb).  Counts relative to species taxid can then be plotted using the [bar chart plotting notebook](notebooks/NCBI_taxid_to_lineage_and_barchart_tree_plotting.ipynb). Tables produced by this notebook can be used by [phyloT](https://phylot.biobyte.de/) and then [iTOL](https://itol.embl.de/) to visualize results on taxonomic trees.
+
+# Contributing & Citation
+If you use the code or ideas in this repository for your own work, please cite [DOI:10.57844/arcadia-e367-8b55](https://doi.org/10.57844/arcadia-e367-8b55). If you would like to contribute to this repository, please read our [guide on credit for contributions](https://github.com/Arcadia-Science/arcadia-software-handbook/blob/main/guides-and-standards/guide-credit-for-contributions.md).
